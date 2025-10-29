@@ -99,4 +99,4 @@ async def get_phone_id(phoneNumber: str) -> Dict[str, Any]:
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))
-    mcp.run(transport="http", host="0.0.0.0", port=port)
+    mcp.run(transport="streamable-http", host="0.0.0.0", port=port, log_level="debug")
