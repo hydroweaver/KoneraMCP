@@ -98,4 +98,5 @@ async def get_phone_id(phoneNumber: str) -> Dict[str, Any]:
         return {"error": f"Unexpected error: {e.__class__.__name__}: {e}"}
 
 if __name__ == "__main__":
-    mcp.run(transport="http", host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8080))
+    mcp.run(transport="http", host="0.0.0.0", port=port)
