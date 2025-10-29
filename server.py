@@ -24,21 +24,21 @@ auth_provider = GoogleProvider(
 
 mcp = FastMCP("Demo Server", auth=auth_provider)
 
-# Add a protected tool to test authentication
-@mcp.tool
-async def get_user_info() -> dict:
-    """Returns information about the authenticated Google user."""
-    from fastmcp.server.dependencies import get_access_token
+# # Add a protected tool to test authentication
+# @mcp.tool
+# async def get_user_info() -> dict:
+#     """Returns information about the authenticated Google user."""
+#     from fastmcp.server.dependencies import get_access_token
     
-    token = get_access_token()
-    # The GoogleProvider stores user data in token claims
-    return {
-        "google_id": token.claims.get("sub"),
-        "email": token.claims.get("email"),
-        "name": token.claims.get("name"),
-        "picture": token.claims.get("picture"),
-        "locale": token.claims.get("locale")
-    }
+#     token = get_access_token()
+#     # The GoogleProvider stores user data in token claims
+#     return {
+#         "google_id": token.claims.get("sub"),
+#         "email": token.claims.get("email"),
+#         "name": token.claims.get("name"),
+#         "picture": token.claims.get("picture"),
+#         "locale": token.claims.get("locale")
+#     }
 
 @mcp.tool
 async def get_phone_id(phoneNumber: str) -> Dict[str, Any]:
